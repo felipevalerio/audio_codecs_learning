@@ -6,7 +6,7 @@ using namespace std;
 
 void generate_sin_wave() {
 
-	int nsamps = 50;
+	int nsamps = 10;
 	double sign = acos(0.0) * 2;
 	float angle = sign / nsamps;
 
