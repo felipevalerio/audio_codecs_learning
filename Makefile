@@ -1,4 +1,4 @@
-TARGET=main
+TARGET=main.exe
 CXX=c++
 LD=clang++
 OBJS=main.cc
