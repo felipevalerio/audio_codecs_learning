@@ -11,16 +11,17 @@ using namespace std;
 
 void generate_song() {
 
-	int nsamps = DURATION * SAMPLE_RATE;
+	auto nsamps = DURATION * SAMPLE_RATE;
+	auto sign = acos(0.0) * 2;
+	auto angle = sign / float(nsamps);
 	float sample;
-	double sign = acos(0.0) * 2;
-	float angle = sign / float(nsamps);
 
-	ofstream output_file("out.bin");
+	ofstream output_file("out.bin", std::ios::binary);
 
 	for (auto i = 0; i < nsamps; i++) {
 
 		sample = sin(angle * FREQUENCY * float(i));
+		uint8_t buffer[8];
 		std::cout << sample << std::endl;
 	}
 }
