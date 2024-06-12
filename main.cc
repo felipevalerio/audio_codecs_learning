@@ -1,6 +1,7 @@
 #include "iostream"
 #include "fstream"
 #include "math.h"
+#include "bit"
 using namespace std;
 
 
@@ -22,6 +23,7 @@ void generate_song() {
 
 		sample = sin(angle * FREQUENCY * float(i));
 		uint8_t buffer[8];
+		static_cast<uint32_t>(sample);
 		std::cout << sample << std::endl;
 	}
 }
