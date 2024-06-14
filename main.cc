@@ -18,8 +18,10 @@ void generate_song() {
 	auto sign = acos(0.0) * 2;
 	auto angle = sign / float(nsamps);
 	double sample;
+	std::string file_name = "out.bin";
 
-	std::ofstream output_file("out.bin", std::ios::binary);
+
+	std::ofstream output_file(file_name, std::ios::binary);
 
 	for (auto i = 0; i < nsamps; i++) {
 
@@ -27,7 +29,7 @@ void generate_song() {
 		float sample_float = static_cast<float>(sample);
 		uint32_t sample_uint = *reinterpret_cast<uint32_t*>(&sample_float);
 		output_file.write(reinterpret_cast<char*>(&sample_uint), sizeof(sample_uint));
-		// std::cout << "\rWrote: " << (i + 1) * sizeof(sample_uint) << " bytes to " << output_file << std::flush;
+		std::cout << "\rWrote: " << (i + 1) * sizeof(sample_uint) << " bytes to " << file_name << std::flush;
 	}
 }
 
