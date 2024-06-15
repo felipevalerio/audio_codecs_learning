@@ -14,15 +14,9 @@ using namespace std;
 
 void generate_song() {
 
-	// modificando a amplitude do sinal
-	// multiplicando pelo fator decay
-
-	auto start = 1.0; 
-	auto end = 1.0e-4;
 	auto nsamps = DURATION * SAMPLE_RATE;
 	auto sign = acos(0.0) * 2;
 	auto angle = sign / float(nsamps);
-	auto decay_factor = pow(end/start, 1.0/static_cast<float>(nsamps));
 	double sample;
 
 	std::string file_name = "out.bin";
@@ -32,8 +26,6 @@ void generate_song() {
 	for (auto i = 0; i < nsamps; i++) {
 
 		sample = std::sin(angle * FREQUENCY * static_cast<double>(i));
-		sample *= start;
-		start *= decay_factor;
 		float sample_float = static_cast<float>(sample);
 		uint32_t sample_uint = *reinterpret_cast<uint32_t*>(&sample_float);
 		output_file.write(reinterpret_cast<char*>(&sample_uint), sizeof(sample_uint));
@@ -49,3 +41,13 @@ int main() {
 
 	return 0;
 }
+
+// pensando em uma onda sonoro se deslocando pelo ar...
+// amplitude: é o descolamento máximo de uma molécula a partir do seu ponto de equilíbrio
+// período (T): é tempo gasto por uma molécula para completar um ciclo (ir e voltar, pensando em uma onda). Número de segundos por oscilação
+// frequência: número de oscilações por segundo. Medido por Hertz (Hz)
+// comprimento: a distância entre duas regiões de compressão de ar
+
+// notas mais altas (agudas) tem frequências mais altas, notas mais baixas (graves) tem frequências mais baixas
+// a nota A (Lá) tem a frequência de 440Hz por segundos, serão 440 oscilações que serão feitas pelas moléculas em 1 segundo
+// o ser humano ouve frequências em uma faixa de 20Hz até 22.000Hz
