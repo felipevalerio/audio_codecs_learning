@@ -42,12 +42,12 @@ int main() {
 	return 0;
 }
 
-// pensando em uma onda sonoro se deslocando pelo ar...
-// amplitude: é o descolamento máximo de uma molécula a partir do seu ponto de equilíbrio
+// pensando em uma onda sonora se deslocando pelo ar...
+// amplitude: é o deslocamento máximo de uma molécula a partir do seu ponto de equilíbrio
 // período (T): é tempo gasto por uma molécula para completar um ciclo (ir e voltar, pensando em uma onda). Número de segundos por oscilação
 // frequência: número de oscilações por segundo. Medido por Hertz (Hz)
 // comprimento: a distância entre duas regiões de compressão de ar
 
 // notas mais altas (agudas) tem frequências mais altas, notas mais baixas (graves) tem frequências mais baixas
 // a nota A (Lá) tem a frequência de 440Hz por segundos, serão 440 oscilações que serão feitas pelas moléculas em 1 segundo
-// o ser humano ouve frequências em uma faixa de 20Hz até 22.000Hz
+// o ser humano ouve frequências em uma faixa de 20Hz até 22.000kHz
